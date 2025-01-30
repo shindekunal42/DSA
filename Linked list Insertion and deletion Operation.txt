@@ -1,0 +1,103 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+    
+    Node(int val){
+        data=val;
+        next=NULL;
+    }
+};
+class List{
+    Node* head;
+    Node* tail;
+    
+    public:
+    List(){
+        head=tail=NULL;
+    }
+    void push_front(int val){
+        Node* newNode = new Node(val);
+        if(head==NULL){//NULL Case
+            head=tail=newNode;
+            return;
+        }
+        else{ //Not Null case
+            newNode->next=head;
+            head=newNode;
+        }
+    }
+    
+    void pop_front(int val){
+        if(head==NULL){
+            return;
+        }
+        else{
+            Node* temp=head;
+           head=head->next;
+            temp->next=NULL;
+            delete temp;
+        }
+    }
+     void pop_back(int val){
+        if(head==NULL){
+            return;
+        }
+       Node* temp=head;
+       while(temp->next!=tail){
+           temp=temp->next;
+       }
+       temp->next=NULL;
+       delete tail;
+       tail=temp;
+    }
+    
+    void push_back(int val){
+       Node* newNode= new Node(val);
+       if(head==NULL){
+           head=tail=newNode;
+       }
+       else{
+           tail->next=newNode;
+           tail=newNode;
+       }
+    }
+    
+    void print(){
+        Node* temp=head;
+        while(temp!=NULL){
+            cout<<temp->data<<"->";
+            temp=temp->next;
+            
+        }
+        cout<<"NULL"<<endl;
+    }
+};
+int main() {
+    
+    List ll;
+    cout<<"Push_Front operation: ";
+    ll.push_front(1);
+    ll.push_front(2);
+    ll.push_front(3);
+    ll.print();
+    
+    cout<<endl;
+    cout<<"Push_Back Operation: ";
+    ll.push_back(6);
+    ll.print();
+    
+    cout<<endl;
+    cout<<"Pop_Front Operation: ";
+    ll.pop_front(3);
+    ll.print();
+    
+    cout<<endl;
+    cout<<"Pop_Back Operation: ";
+    ll.pop_back(6);
+    ll.print();
+    return 0;
+}
