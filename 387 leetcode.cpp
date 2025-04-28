@@ -5,7 +5,7 @@ class Solution {
            //create a map store the frequency of each element 
            unordered_map<char,int>m;
            queue<int>q;
-    
+          
            for(int i=0;i<s.size();i++){
             if(m.find(s[i])==m.end()){
                 q.push(i);
