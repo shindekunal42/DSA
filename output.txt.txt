@@ -1,6 +1,0 @@
-Size of queue is: 4
-Size of queue is: 3
-Front of queue is:15
-Rear of queue is:35
-15 25 35 
-Queue is not empty
