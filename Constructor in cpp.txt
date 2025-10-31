@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+//default Constructor
+class A {
+public:
+  
+    // Constructor of the class without
+    // any parameters
+    A() {
+        cout << "Constructor called" << endl;
+    }
+};
+class B{
+    //parameterised constructor
+    
+    public:
+    int val;
+    B(int x){
+       val=x;
+    }
+};
+class C{
+    //Copy constructor
+    
+    public:
+    int val;
+    C(int x){
+       val=x;
+    }
+    C(C& c){
+        val =c.val;
+    }
+};
+int main() {
+    A obj1;
+    B b(10);
+    cout << b.val;
+    C c1(20);
+    C c2(c1);
+      
+ 
+    cout<<endl;
+    cout<<"Copy Constructor 1: "<<c1.val;
+    cout<<endl;
+    cout<<"Copy Constructor 2: "<<c2.val;
+
+    return 0;
+}
